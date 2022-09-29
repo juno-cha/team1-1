@@ -19,7 +19,7 @@
                             [ ProductId :  {{data.productId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ ProductName :  {{data.productName }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ RentUnitPrice :  {{data.rentUnitPrice }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ RentAvailableYn :  {{data.rentAvailableYn }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ RentAvailable :  {{data.rentAvailable }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -104,7 +104,7 @@
                 'productId': 0,
                 'productName': '',
                 'rentUnitPrice': 0,
-                'rentAvailableYn': '',
+                'rentAvailable': false,
             }
         },
         methods: {

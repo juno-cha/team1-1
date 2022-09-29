@@ -8,7 +8,7 @@ public class Management {
     private Long productId;
     private String productName;
     private Long rentUnitPrice;
-    private String rentAvailableYn;
+    private Boolean rentAvailable;
 }
 
 

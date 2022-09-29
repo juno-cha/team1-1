@@ -71,7 +71,7 @@
                 'productId': 0,
                 'productName': '',
                 'rentUnitPrice': 0,
-                'rentAvailableYn': '',
+                'rentAvailable': false,
             }
         },
         methods:{

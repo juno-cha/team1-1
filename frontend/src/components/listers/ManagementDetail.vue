@@ -15,7 +15,7 @@
                 <Number label="RentUnitPrice" v-model="item.rentUnitPrice" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="RentAvailableYn" v-model="item.rentAvailableYn" :editMode="editMode" @change="change" />
+                <Boolean label="RentAvailable" v-model="item.rentAvailable" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>
 

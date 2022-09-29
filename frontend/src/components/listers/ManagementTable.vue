@@ -69,7 +69,7 @@
                     { text: "productId", value: "productId" },
                     { text: "productName", value: "productName" },
                     { text: "rentUnitPrice", value: "rentUnitPrice" },
-                    { text: "rentAvailableYn", value: "rentAvailableYn" },
+                    { text: "rentAvailable", value: "rentAvailable" },
                 ],
             management : [],
             newValue: {},
@@ -90,7 +90,7 @@
                 'productId': 0,
                 'productName': '',
                 'rentUnitPrice': 0,
-                'rentAvailableYn': '',
+                'rentAvailable': false,
             }
         },
         methods: {

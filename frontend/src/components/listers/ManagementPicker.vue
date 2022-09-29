@@ -24,7 +24,7 @@
                                 RentUnitPrice :  {{item.rentUnitPrice }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                RentAvailableYn :  {{item.rentAvailableYn }}
+                                RentAvailable :  {{item.rentAvailable }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

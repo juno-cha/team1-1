@@ -40,7 +40,7 @@ public class Management  {
     
     
     
-    private String rentAvailableYn;
+    private Boolean rentAvailable;
 
     @PostPersist
     public void onPostPersist(){

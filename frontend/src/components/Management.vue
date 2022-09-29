@@ -20,7 +20,7 @@
             <Number label="ProductId" v-model="value.productId" :editMode="editMode"/>
             <String label="ProductName" v-model="value.productName" :editMode="editMode"/>
             <Number label="RentUnitPrice" v-model="value.rentUnitPrice" :editMode="editMode"/>
-            <String label="RentAvailableYn" v-model="value.rentAvailableYn" :editMode="editMode"/>
+            <Boolean label="RentAvailable" v-model="value.rentAvailable" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
