@@ -1,8 +1,6 @@
 package team.domain;
 
 import team.domain.BikeArrivaled;
-import team.domain.BicycleRepaired;
-import team.domain.BikeRepairCompleted;
 import team.RentHouseApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -50,16 +48,6 @@ public class Management  {
         BikeArrivaled bikeArrivaled = new BikeArrivaled(this);
         bikeArrivaled.publishAfterCommit();
 
-
-
-        BicycleRepaired bicycleRepaired = new BicycleRepaired(this);
-        bicycleRepaired.publishAfterCommit();
-
-
-
-        BikeRepairCompleted bikeRepairCompleted = new BikeRepairCompleted(this);
-        bikeRepairCompleted.publishAfterCommit();
-
     }
 
     public static ManagementRepository repository(){
@@ -69,6 +57,16 @@ public class Management  {
 
 
 
+    public void bikeRepair(){
+        BicycleRepaired bicycleRepaired = new BicycleRepaired(this);
+        bicycleRepaired.publishAfterCommit();
+
+    }
+    public void bikeRepairComplete(){
+        BikeRepairCompleted bikeRepairCompleted = new BikeRepairCompleted(this);
+        bikeRepairCompleted.publishAfterCommit();
+
+    }
 
     public static void bikeConditionChange(BikeArrivaled bikeArrivaled){
 
