@@ -169,6 +169,16 @@ public class Management  {
          });
         
     }
+
+    /*
+     * 자전거 상태 변경(수리완료)
+     * 
+     * @param
+     * productId
+     * productName
+     * rentUnitPrice
+     * rentAvailable    -- true
+     */
     public static void bikeConditionChange(BikeRepairCompleted bikeRepairCompleted){
 
         /** Example 1:  new item 
@@ -177,16 +187,17 @@ public class Management  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(bikeRepairCompleted.get???()).ifPresent(management->{
-            
-            management // do something
+        repository().findById(bikeRepairCompleted.getProductId()).ifPresent(management->{
+            //management // do something
+            // management.setProductId(bicycleRepaired.getProductId());
+            // management.setProductName(bicycleRepaired.getProductName());
+            // management.setRentUnitPrice(bicycleRepaired.getRentUnitPrice());
+            management.setRentAvailable(true);
             repository().save(management);
-
-
          });
-        */
+        
 
         
     }
