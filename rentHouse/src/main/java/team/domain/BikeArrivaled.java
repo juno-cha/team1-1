@@ -12,7 +12,7 @@ public class BikeArrivaled extends AbstractEvent {
     private Long productId;
     private String productName;
     private Long rentUnitPrice;
-    private boolean rentAvailable;
+    private Boolean rentAvailable;
 
     public BikeArrivaled(Management aggregate){
         super(aggregate);
