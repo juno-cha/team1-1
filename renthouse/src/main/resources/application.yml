@@ -93,23 +93,23 @@ spring:
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata: 
-  name: "order"
+  name: "renthouse"
   labels: 
-    app: "order"
+    app: "renthouse"
 spec: 
   selector: 
     matchLabels: 
-      app: "order"
+      app: "renthouse"
   replicas: 1
   template: 
     metadata: 
       labels: 
-        app: "order"
+        app: "renthouse"
     spec: 
       containers: 
         - 
-          name: "order"
-          image: "jinyoung/order:database"
+          name: "renthouse"
+          image: "cherry28j/renthouse:database"
           ports: 
             - 
               containerPort: 80
@@ -117,9 +117,9 @@ spec:
             - name: superuser.userId
               value: some_value					
             - name: _DATASOURCE_ADDRESS
-              value: mysql
+              value: localhost:3306
             - name: _DATASOURCE_TABLESPACE
-              value: orderdb
+              value: renthouse
             - name: _DATASOURCE_USERNAME
               value: root
             - name: _DATASOURCE_PASSWORD
