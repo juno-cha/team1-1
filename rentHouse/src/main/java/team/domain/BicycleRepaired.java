@@ -1,9 +1,9 @@
 package team.domain;
 
-import java.util.*;
-import lombok.*;
 import team.domain.*;
 import team.infra.AbstractEvent;
+import java.util.*;
+import lombok.*;
 
 @Data
 @ToString
@@ -12,13 +12,12 @@ public class BicycleRepaired extends AbstractEvent {
     private Long productId;
     private String productName;
     private Long rentUnitPrice;
-    private String rentAvailableYn;
+    private Boolean rentAvailable;
 
-    public BicycleRepaired(Management aggregate) {
+    public BicycleRepaired(Management aggregate){
         super(aggregate);
     }
-
-    public BicycleRepaired() {
+    public BicycleRepaired(){
         super();
     }
 }

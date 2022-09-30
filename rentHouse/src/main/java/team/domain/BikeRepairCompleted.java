@@ -7,17 +7,17 @@ import lombok.*;
 
 @Data
 @ToString
-public class BikeArrivaled extends AbstractEvent {
+public class BikeRepairCompleted extends AbstractEvent {
 
     private Long productId;
     private String productName;
     private Long rentUnitPrice;
     private Boolean rentAvailable;
 
-    public BikeArrivaled(Management aggregate){
+    public BikeRepairCompleted(Management aggregate){
         super(aggregate);
     }
-    public BikeArrivaled(){
+    public BikeRepairCompleted(){
         super();
     }
 }
