@@ -1,7 +1,6 @@
 package team.domain;
 
 import team.domain.Returned;
-import team.domain.RentalCanceled;
 import team.domain.BikeRented;
 import team.RentApplication;
 import javax.persistence.*;
@@ -36,8 +35,6 @@ public class Rent  {
         Returned returned = new Returned(this);
         returned.publishAfterCommit();
 
-        RentalCanceled rentalCanceled = new RentalCanceled(this);
-        rentalCanceled.publishAfterCommit();
 
         BikeRented bikeRented = new BikeRented(this);
         bikeRented.publishAfterCommit();
@@ -51,10 +48,28 @@ public class Rent  {
         if(!management.getRentAvailable())
             throw new RuntimeException("The bike is unavailable.");
     }
+    @PreRemove
+    public void onPreRemove(){
+    }
 
     public static RentRepository repository(){
         RentRepository rentRepository = RentApplication.applicationContext.getBean(RentRepository.class);
         return rentRepository;
     }
+
+
+
+    public void rentalCancel(){
+        RentalCanceled rentalCanceled = new RentalCanceled(this);
+        rentalCanceled.publishAfterCommit();
+
+    }
+    public void bikeReturn(){
+        RentalCanceled rentalCanceled = new RentalCanceled(this);
+        rentalCanceled.publishAfterCommit();
+
+    }
+
+
 
 }
