@@ -78,6 +78,9 @@ public class Rent  {
         //    .getManagement(/** mapping value needed */);
 
     }
+    @PreRemove
+    public void onPreRemove(){
+    }
 
     public static RentRepository repository(){
         RentRepository rentRepository = RentApplication.applicationContext.getBean(RentRepository.class);
@@ -86,6 +89,11 @@ public class Rent  {
 
 
 
+    public void return(){
+        RentalCanceled rentalCanceled = new RentalCanceled(this);
+        rentalCanceled.publishAfterCommit();
+
+    }
 
 
 

@@ -22,5 +22,23 @@ public class RentController {
 
 
 
+    @RequestMapping(value = "rents/{id}/return",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8")
+    public Rent return(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+            System.out.println("##### /rent/return  called #####");
+            Optional<Rent> optionalRent = rentRepository.findById(id);
+            
+            optionalRent.orElseThrow(()-> new Exception("No Entity Found"));
+            Rent rent = optionalRent.get();
+            rent.return();
+            
+            rentRepository.save(rent);
+            return rent;
+            
+    }
+    
+
+
 
 }
