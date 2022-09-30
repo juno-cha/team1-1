@@ -11,6 +11,8 @@ public class ManagementHateoasProcessor implements RepresentationModelProcessor<
 
     @Override
     public EntityModel<Management> process(EntityModel<Management> model) {
+        model.add(Link.of(model.getRequiredLink("self").getHref() + "/bikerepair").withRel("bikerepair"));
+        model.add(Link.of(model.getRequiredLink("self").getHref() + "/bikerepaircomplete").withRel("bikerepaircomplete"));
 
         
         return model;
