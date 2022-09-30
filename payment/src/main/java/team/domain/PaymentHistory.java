@@ -13,47 +13,22 @@ import java.util.Date;
 
 public class PaymentHistory  {
 
-    
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
-    
     private Long id;
-    
-    
-    
-    
     
     private Long totalPrice;
     
-    
-    
-    
-    
     private Long productId;
     
-    
-    
-    
-    
     private String cancelYn;
-    
-    
-    
-    
     
     private Long orderId;
 
     @PostPersist
     public void onPostPersist(){
-
-
         Paid paid = new Paid(this);
         paid.publishAfterCommit();
-
     }
 
     public static PaymentHistoryRepository repository(){
@@ -61,9 +36,16 @@ public class PaymentHistory  {
         return paymentHistoryRepository;
     }
 
-
-
-
+    /**
+     * 예약취소
+     * 
+     * @param
+     * productId
+     * startTime        -- 자동계산
+     * endTime          -- 자동계산
+     * rentHour
+     * totalPrice       -- 자동계산
+     */
     public static void cancelRequest(RentalCanceled rentalCanceled){
 
         /** Example 1:  new item 
@@ -82,9 +64,18 @@ public class PaymentHistory  {
 
          });
         */
-
-        
     }
+
+    /**
+     * 예약
+     * 
+     * @param
+     * productId
+     * startTime        -- 자동계산
+     * endTime          -- 자동계산
+     * rentHour
+     * totalPrice       -- 자동계산
+     */
     public static void payment(BikeRented bikeRented){
 
         /** Example 1:  new item 
@@ -103,9 +94,5 @@ public class PaymentHistory  {
 
          });
         */
-
-        
     }
-
-
 }
