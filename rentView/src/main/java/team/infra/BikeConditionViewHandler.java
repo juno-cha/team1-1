@@ -29,6 +29,7 @@ public class BikeConditionViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             bikeCondition.setId(bikeArrivaled.getProductId());
             bikeCondition.setRentCount(0);
+            bikeCondition.setAvailableRent(bikeArrivaled.getRentAvailable());
             // view 레파지 토리에 save
             bikeConditionRepository.save(bikeCondition);
 
