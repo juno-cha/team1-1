@@ -20,6 +20,24 @@ public class ManagementController {
 
 
 
+    @RequestMapping(value = "managements/{id}/bikearrival",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8")
+    public Management bikeArrival(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+            System.out.println("##### /management/bikeArrival  called #####");
+            Optional<Management> optionalManagement = managementRepository.findById(id);
+            
+            optionalManagement.orElseThrow(()-> new Exception("No Entity Found"));
+            Management management = optionalManagement.get();
+            management.bikeArrival();
+            
+            managementRepository.save(management);
+            return management;
+            
+    }
+    
+
+
 
     @RequestMapping(value = "managements/{id}/bikerepair",
         method = RequestMethod.PUT,
