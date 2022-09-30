@@ -49,13 +49,13 @@
                     </v-list-item>
                     <v-list-item
                         class="px-2"
-                        key="timeCounteds"
-                        to="timeCounteds"
+                        key="dashboards"
+                        to="dashboards"
                         @click="changeUrl()"
                         color="deep-purple lighten-2"
                         style="font-weight:700;"
                     >
-                        TimeCounted
+                        Dashboard
                     </v-list-item>
 
                     <v-list-item
@@ -157,13 +157,13 @@
                                     class="mx-auto"
                                     outlined
                                     rounded
-                                    key="timeCounteds"
-                                    to="/timeCounteds"
+                                    key="dashboards"
+                                    to="/dashboards"
                                     @click="changeUrl()"
                                     color="deep-purple lighten-2"
                                     style="font-weight:500; font-size:20px; padding:15px;"
                                 >
-                                    TimeCounted
+                                    Dashboard
                                 </v-btn>
                             </v-card-actions>
                         </v-card>

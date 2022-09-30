@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: view
+  name: rentView
   labels:
-    app: view
+    app: rentView
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: view
+      app: rentView
   template:
     metadata:
       labels:
-        app: view
+        app: rentView
     spec:
       containers:
-        - name: view
-          image: username/view:latest
+        - name: rentView
+          image: username/rentView:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -165,15 +165,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: view
+  name: rentView
   labels:
-    app: view
+    app: rentView
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: view
+    app: rentView
 
 
 ---

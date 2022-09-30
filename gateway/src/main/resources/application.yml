@@ -8,10 +8,10 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: view
+        - id: rentView
           uri: http://localhost:8081
           predicates:
-            - Path=, /bikeConditions/**, /timeCounteds/**
+            - Path=, /bikeConditions/**, /dashboards/**
         - id: payment
           uri: http://localhost:8082
           predicates:
@@ -47,10 +47,10 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: view
-          uri: http://view:8080
+        - id: rentView
+          uri: http://rentView:8080
           predicates:
-            - Path=, /bikeConditions/**, /timeCounteds/**
+            - Path=, /bikeConditions/**, /dashboards/**
         - id: payment
           uri: http://payment:8080
           predicates:
