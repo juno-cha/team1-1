@@ -48,6 +48,18 @@ public class Rent  {
         if(!management.getRentAvailable())
             throw new RuntimeException("The bike is unavailable.");
     }
+
+    @PrePersist
+    public void onPrePersist(){
+        team.external.Management management =
+           RentApplication.applicationContext.getBean(team.external.ManagementService.class)
+           .getManagement(getProductId());
+        setStartTime(new Date());
+        setEndTime(new Date(getStartTime().getTime() + 60000 * 60 * getRentHour()));
+        setTotalPrice(getRentHour() * management.getRentUnitPrice());
+    }
+
+
     @PreRemove
     public void onPreRemove(){
     }

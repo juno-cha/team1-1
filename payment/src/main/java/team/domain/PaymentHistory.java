@@ -1,8 +1,12 @@
 package team.domain;
 
 import team.domain.Paid;
+import zipkin2.internal.DateUtil;
 import team.PaymentApplication;
 import javax.persistence.*;
+
+import ch.qos.logback.classic.pattern.DateConverter;
+
 import java.util.List;
 import lombok.Data;
 import java.util.Date;
@@ -58,6 +62,7 @@ public class PaymentHistory  {
         
         repository().findById(rentalCanceled.getOrderId()).ifPresent(paymentHistory->{
             
+
             //paymentHistory // do something
             //paymentHistory.setProductId(rentalCanceled.getProductId());
             //paymentHistory.setTotalPrice(rentalCanceled.getTotalPrice());

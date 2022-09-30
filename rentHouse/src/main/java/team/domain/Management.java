@@ -60,17 +60,6 @@ public class Management  {
         management.setRentUnitPrice(bikeArrivaled.getRentUnitPrice());
         management.setRentAvailable(true);
         repository().save(management);
-
-        /** Example 2:  finding and process
-        
-        repository().findById(bikeArrivaled.get???()).ifPresent(management->{
-            
-            management // do something
-            repository().save(management);
-
-
-         });
-        */
     }
 
     /*
@@ -83,13 +72,6 @@ public class Management  {
      * rentAvailable    -- false
      */
     public static void bikeConditionChange(BicycleRepaired bicycleRepaired){
-
-        /** Example 1:  new item 
-        Management management = new Management();
-        repository().save(management);
-
-        */
-
         /** Example 2:  finding and process */
         
         repository().findById(bicycleRepaired.getProductId()).ifPresent(management->{
@@ -114,13 +96,6 @@ public class Management  {
      * rentAvailable    -- false
      */
     public static void bikeConditionChange(Paid paid){
-
-        /** Example 1:  new item 
-        Management management = new Management();
-        repository().save(management);
-
-        */
-
         /** Example 2:  finding and process     */
         
         repository().findById(paid.getProductId()).ifPresent(management->{
@@ -149,13 +124,6 @@ public class Management  {
      * rentAvailable    -- true
      */
     public static void bikeConditionChange(Returned returned){
-
-        /** Example 1:  new item 
-        Management management = new Management();
-        repository().save(management);
-
-        */
-
         /** Example 2:  finding and process     */
         
         repository().findById(returned.getProductId()).ifPresent(management->{
@@ -180,13 +148,6 @@ public class Management  {
      * rentAvailable    -- true
      */
     public static void bikeConditionChange(BikeRepairCompleted bikeRepairCompleted){
-
-        /** Example 1:  new item 
-        Management management = new Management();
-        repository().save(management);
-
-        */
-
         /** Example 2:  finding and process */
         
         repository().findById(bikeRepairCompleted.getProductId()).ifPresent(management->{
