@@ -1,7 +1,6 @@
 package team.domain;
 
 import team.domain.Returned;
-import team.domain.RentalCanceled;
 import team.domain.BikeRented;
 import team.RentApplication;
 import javax.persistence.*;
@@ -64,11 +63,6 @@ public class Rent  {
 
 
 
-        RentalCanceled rentalCanceled = new RentalCanceled(this);
-        rentalCanceled.publishAfterCommit();
-
-
-
         BikeRented bikeRented = new BikeRented(this);
         bikeRented.publishAfterCommit();
 
@@ -89,7 +83,12 @@ public class Rent  {
 
 
 
-    public void return(){
+    public void rentalCancel(){
+        RentalCanceled rentalCanceled = new RentalCanceled(this);
+        rentalCanceled.publishAfterCommit();
+
+    }
+    public void bikeReturn(){
         RentalCanceled rentalCanceled = new RentalCanceled(this);
         rentalCanceled.publishAfterCommit();
 

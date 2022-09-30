@@ -66,9 +66,17 @@
                     v-if="!editMode"
                     color="deep-purple lighten-2"
                     text
-                    @click="return"
+                    @click="rentalCancel"
             >
-                Return
+                RentalCancel
+            </v-btn>
+            <v-btn
+                    v-if="!editMode"
+                    color="deep-purple lighten-2"
+                    text
+                    @click="bikeReturn"
+            >
+                BikeReturn
             </v-btn>
         </v-card-actions>
 
@@ -201,7 +209,26 @@
             change(){
                 this.$emit('input', this.value);
             },
-            async return() {
+            async rentalCancel() {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['rentalcancel'].href))
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
+            },
+            async bikeReturn() {
                 try {
                     if(!this.offline) {
                         var temp = await axios.put(axios.fixUrl(this.value._links['return'].href))

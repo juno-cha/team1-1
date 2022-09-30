@@ -21,17 +21,35 @@ public class RentController {
 
 
 
-
-    @RequestMapping(value = "rents/{id}/return",
+    @RequestMapping(value = "rents/{id}/rentalcancel",
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8")
-    public Rent return(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-            System.out.println("##### /rent/return  called #####");
+    public Rent rentalCancel(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+            System.out.println("##### /rent/rentalCancel  called #####");
             Optional<Rent> optionalRent = rentRepository.findById(id);
             
             optionalRent.orElseThrow(()-> new Exception("No Entity Found"));
             Rent rent = optionalRent.get();
-            rent.return();
+            rent.rentalCancel();
+            
+            rentRepository.save(rent);
+            return rent;
+            
+    }
+    
+
+
+
+    @RequestMapping(value = "rents/{id}/return",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8")
+    public Rent bikeReturn(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+            System.out.println("##### /rent/bikeReturn  called #####");
+            Optional<Rent> optionalRent = rentRepository.findById(id);
+            
+            optionalRent.orElseThrow(()-> new Exception("No Entity Found"));
+            Rent rent = optionalRent.get();
+            rent.bikeReturn();
             
             rentRepository.save(rent);
             return rent;
