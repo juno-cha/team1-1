@@ -32,15 +32,10 @@ public class Management  {
 
         BicycleRepaired bicycleRepaired = new BicycleRepaired(this);
         bicycleRepaired.publishAfterCommit();
-<<<<<<< HEAD
-=======
-
-
 
         BikeRepairCompleted bikeRepairCompleted = new BikeRepairCompleted(this);
         bikeRepairCompleted.publishAfterCommit();
 
->>>>>>> origin/template
     }
 
     public static ManagementRepository repository(){
