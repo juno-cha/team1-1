@@ -8,8 +8,8 @@ Vue.use(Router);
 
 import BikeConditionView from "./components/BikeConditionView"
 import BikeConditionViewDetail from "./components/BikeConditionViewDetail"
-import TimeCountedView from "./components/TimeCountedView"
-import TimeCountedViewDetail from "./components/TimeCountedViewDetail"
+import DashboardView from "./components/DashboardView"
+import DashboardViewDetail from "./components/DashboardViewDetail"
 import PaymentHistoryManager from "./components/listers/PaymentHistoryCards"
 import PaymentHistoryDetail from "./components/listers/PaymentHistoryDetail"
 
@@ -36,14 +36,14 @@ export default new Router({
                 component: BikeConditionViewDetail
             },
             {
-                path: '/timeCounteds',
-                name: 'TimeCountedView',
-                component: TimeCountedView
+                path: '/dashboards',
+                name: 'DashboardView',
+                component: DashboardView
             },
             {
-                path: '/timeCounteds/:id',
-                name: 'TimeCountedViewDetail',
-                component: TimeCountedViewDetail
+                path: '/dashboards/:id',
+                name: 'DashboardViewDetail',
+                component: DashboardViewDetail
             },
             {
                 path: '/paymentHistories',

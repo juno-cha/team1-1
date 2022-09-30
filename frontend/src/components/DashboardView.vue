@@ -2,7 +2,7 @@
 
     <v-data-table
         :headers="headers"
-        :items="bikeCondition"
+        :items="dashboard"
         :items-per-page="5"
         class="elevation-1"
     ></v-data-table>
@@ -13,7 +13,7 @@
     const axios = require('axios').default;
 
     export default {
-        name: 'BikeConditionView',
+        name: 'DashboardView',
         props: {
             value: Object,
             editMode: Boolean,
@@ -22,17 +22,17 @@
         data: () => ({
             headers: [
                 { text: "id", value: "id" },
-                { text: "rentCount", value: "rentCount" },
-                { text: "availableRent", value: "availableRent" },
+                { text: "rentStatus", value: "rentStatus" },
+                { text: "paymentStatus", value: "paymentStatus" },
             ],
-            bikeCondition : [],
+            dashboard : [],
         }),
           async created() {
-            var temp = await axios.get(axios.fixUrl('/bikeConditions'))
+            var temp = await axios.get(axios.fixUrl('/dashboards'))
 
-            temp.data._embedded.bikeConditions.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
+            temp.data._embedded.dashboards.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
 
-            this.bikeCondition = temp.data._embedded.bikeConditions;
+            this.dashboard = temp.data._embedded.dashboards;
         },
         methods: {
         }

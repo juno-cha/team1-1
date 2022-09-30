@@ -2,15 +2,15 @@
 
     <v-card outlined>
         <v-card-title>
-            BikeCondition # {{$route.params.id }}
+            Dashboard # {{$route.params.id }}
         </v-card-title>
 
         <v-card-text>
             <div>
-                <Number label="RentCount" v-model="item.rentCount" :editMode="editMode" @change="change" />
+                <String label="RentStatus" v-model="item.rentStatus" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Boolean label="AvailableRent" v-model="item.availableRent" :editMode="editMode" @change="change" />
+                <String label="PaymentStatus" v-model="item.paymentStatus" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>
     </v-card>
@@ -21,7 +21,7 @@
   const axios = require('axios').default;
 
   export default {
-    name: 'BikeConditionViewDetail',
+    name: 'DashboardViewDetail',
     props: {
       value: Object,
     },
@@ -30,7 +30,7 @@
     }),
     async created() {
       var params = this.$route.params;
-      var temp = await axios.get(axios.fixUrl('/bikeConditions/' + params.id))
+      var temp = await axios.get(axios.fixUrl('/dashboards/' + params.id))
 
       this.item = temp.data;
 
