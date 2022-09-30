@@ -7,11 +7,30 @@ spring:
 
 spring:
   profiles: default
+#  jpa:
+#    properties:
+#      hibernate:
+#        show_sql: true
+#        format_sql: true
   jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+        dialect: org.hibernate.dialect.MySQL57Dialect
+  datasource:
+#    url: jdbc:mysql://localhost:3306/renthouse
+#    username: root
+#    password: admin
+#    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${_DATASOURCE_ADDRESS:localhost:3306}/${_DATASOURCE_TABLESPACE:renthouse}
+    username: ${_DATASOURCE_USERNAME:root1}
+    password: ${_DATASOURCE_PASSWORD:admin1}
+    driverClassName: com.mysql.cj.jdbc.Driver
   cloud:
     stream:
       kafka:
@@ -68,5 +87,55 @@ spring:
         event-out:
           destination: team
           contentType: application/json
+
+---
+
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata: 
+  name: "rentHouse"
+  labels: 
+    app: "rentHouse"
+spec: 
+  selector: 
+    matchLabels: 
+      app: "rentHouse"
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        app: "rentHouse"
+    spec: 
+      containers: 
+        - 
+          name: "rentHouse"
+          image: "juno.cha/rentHouse:database"
+          ports: 
+            - 
+              containerPort: 80
+          env:
+            - name: superuser.userId
+              value: some_value					
+            - name: _DATASOURCE_ADDRESS
+              value: mysql
+            - name: _DATASOURCE_TABLESPACE
+              value: orderdb
+            - name: _DATASOURCE_USERNAME
+              value: root
+            - name: _DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-pass
+type: Opaque
+data:
+  password: YWRtaW4= 
 
 
