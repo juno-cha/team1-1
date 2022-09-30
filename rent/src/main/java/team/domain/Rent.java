@@ -48,7 +48,7 @@ public class Rent  {
            .getManagement(getProductId());
 
         //Validation Check (Bike already rented.)
-        if(management.getRentAvailable())
+        if(!management.getRentAvailable())
             throw new RuntimeException("The bike is unavailable.");
     }
 

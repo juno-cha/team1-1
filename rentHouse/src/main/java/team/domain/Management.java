@@ -13,47 +13,24 @@ import java.util.Date;
 @Data
 
 public class Management  {
-
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
-    
     private Long productId;
-    
-    
-    
-    
-    
+
     private String productName;
-    
-    
-    
-    
-    
+
     private Long rentUnitPrice;
-    
-    
-    
-    
-    
+
     private Boolean rentAvailable;
 
     @PostPersist
     public void onPostPersist(){
-
-
         BikeArrivaled bikeArrivaled = new BikeArrivaled(this);
         bikeArrivaled.publishAfterCommit();
 
-
-
         BicycleRepaired bicycleRepaired = new BicycleRepaired(this);
         bicycleRepaired.publishAfterCommit();
-
     }
 
     public static ManagementRepository repository(){
@@ -61,16 +38,23 @@ public class Management  {
         return managementRepository;
     }
 
-
-
-
+    /*
+     * 자전거 상태 변경(신규상품입고)
+     * 
+     * @param
+     * productId
+     * productName
+     * rentUnitPrice
+     * rentAvailable    -- true
+     */
     public static void bikeConditionChange(BikeArrivaled bikeArrivaled){
 
-        /** Example 1:  new item 
+        /** Example 1:  new item    */
         Management management = new Management();
+        management.setProductName(bikeArrivaled.getProductName());
+        management.setRentUnitPrice(bikeArrivaled.getRentUnitPrice());
+        management.setRentAvailable(true);
         repository().save(management);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -82,9 +66,17 @@ public class Management  {
 
          });
         */
-
-        
     }
+
+    /*
+     * 자전거 상태 변경(수리)
+     * 
+     * @param
+     * productId
+     * productName
+     * rentUnitPrice
+     * rentAvailable    -- false
+     */
     public static void bikeConditionChange(BicycleRepaired bicycleRepaired){
 
         /** Example 1:  new item 
@@ -93,19 +85,29 @@ public class Management  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(bicycleRepaired.get???()).ifPresent(management->{
+        repository().findById(bicycleRepaired.getProductId()).ifPresent(management->{
             
-            management // do something
+            //management // do something
+            // management.setProductId(bicycleRepaired.getProductId());
+            // management.setProductName(bicycleRepaired.getProductName());
+            // management.setRentUnitPrice(bicycleRepaired.getRentUnitPrice());
+            management.setRentAvailable(false);
+
             repository().save(management);
-
-
          });
-        */
-
-        
     }
+
+    /*
+     * 자전거 상태 변경(대여)
+     * 
+     * @param
+     * productId
+     * productName
+     * rentUnitPrice
+     * rentAvailable    -- false
+     */
     public static void bikeConditionChange(Paid paid){
 
         /** Example 1:  new item 
@@ -114,19 +116,33 @@ public class Management  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process     */
         
-        repository().findById(paid.get???()).ifPresent(management->{
+        repository().findById(paid.getProductId()).ifPresent(management->{
             
-            management // do something
+            //management // do something
+            // management.setProductId(bicycleRepaired.getProductId());
+            // management.setProductName(bicycleRepaired.getProductName());
+            // management.setRentUnitPrice(bicycleRepaired.getRentUnitPrice());
+            management.setRentAvailable(false);
+
             repository().save(management);
 
-
          });
-        */
+        
 
         
     }
+
+    /*
+     * 자전거 상태 변경(반납)
+     * 
+     * @param
+     * productId
+     * productName
+     * rentUnitPrice
+     * rentAvailable    -- true
+     */
     public static void bikeConditionChange(Returned returned){
 
         /** Example 1:  new item 
@@ -135,19 +151,17 @@ public class Management  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process     */
         
-        repository().findById(returned.get???()).ifPresent(management->{
-            
-            management // do something
+        repository().findById(returned.getProductId()).ifPresent(management->{
+            //management // do something
+            // management.setProductId(bicycleRepaired.getProductId());
+            // management.setProductName(bicycleRepaired.getProductName());
+            // management.setRentUnitPrice(bicycleRepaired.getRentUnitPrice());
+            management.setRentAvailable(true);
             repository().save(management);
 
-
          });
-        */
-
         
     }
-
-
 }
