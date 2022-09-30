@@ -87,6 +87,22 @@ public class PolicyHandler{
         
 
     }
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='BikeRepairCompleted'")
+    public void wheneverBikeRepairCompleted_BikeConditionChange(@Payload BikeRepairCompleted bikeRepairCompleted){
+
+        BikeRepairCompleted event = bikeRepairCompleted;
+        System.out.println("\n\n##### listener BikeConditionChange : " + bikeRepairCompleted + "\n\n");
+
+
+        
+
+        // Sample Logic //
+        Management.bikeConditionChange(event);
+        
+
+        
+
+    }
 
 }
 
