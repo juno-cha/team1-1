@@ -30,11 +30,11 @@ public class Management  {
         BikeArrivaled bikeArrivaled = new BikeArrivaled(this);
         bikeArrivaled.publishAfterCommit();
 
-        BicycleRepaired bicycleRepaired = new BicycleRepaired(this);
-        bicycleRepaired.publishAfterCommit();
+        // BicycleRepaired bicycleRepaired = new BicycleRepaired(this);
+        // bicycleRepaired.publishAfterCommit();
 
-        BikeRepairCompleted bikeRepairCompleted = new BikeRepairCompleted(this);
-        bikeRepairCompleted.publishAfterCommit();
+        // BikeRepairCompleted bikeRepairCompleted = new BikeRepairCompleted(this);
+        // bikeRepairCompleted.publishAfterCommit();
 
     }
 
