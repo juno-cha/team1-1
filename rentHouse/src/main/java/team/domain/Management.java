@@ -1,6 +1,5 @@
 package team.domain;
 
-import team.domain.BikeArrivaled;
 import team.RentHouseApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -43,11 +42,6 @@ public class Management  {
 
     @PostPersist
     public void onPostPersist(){
-
-
-        BikeArrivaled bikeArrivaled = new BikeArrivaled(this);
-        bikeArrivaled.publishAfterCommit();
-
     }
 
     public static ManagementRepository repository(){
@@ -57,6 +51,11 @@ public class Management  {
 
 
 
+    public void bikeArrival(){
+        BikeArrivaled bikeArrivaled = new BikeArrivaled(this);
+        bikeArrivaled.publishAfterCommit();
+
+    }
     public void bikeRepair(){
         BicycleRepaired bicycleRepaired = new BicycleRepaired(this);
         bicycleRepaired.publishAfterCommit();
