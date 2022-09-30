@@ -54,16 +54,19 @@ public class PaymentHistory  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(rentalCanceled.get???()).ifPresent(paymentHistory->{
+        repository().findById(rentalCanceled.getOrderId()).ifPresent(paymentHistory->{
             
-            paymentHistory // do something
+            //paymentHistory // do something
+            //paymentHistory.setProductId(rentalCanceled.getProductId());
+            //paymentHistory.setTotalPrice(rentalCanceled.getTotalPrice());
+            paymentHistory.setOrderId(rentalCanceled.getOrderId());
+            paymentHistory.setCancelYn("Y");
             repository().save(paymentHistory);
 
-
          });
-        */
+        
     }
 
     /**
@@ -78,11 +81,15 @@ public class PaymentHistory  {
      */
     public static void payment(BikeRented bikeRented){
 
-        /** Example 1:  new item 
+        /** Example 1:  new item */
         PaymentHistory paymentHistory = new PaymentHistory();
+        paymentHistory.setProductId(bikeRented.getProductId());
+        paymentHistory.setOrderId(bikeRented.getOrderId());
+        paymentHistory.setTotalPrice(bikeRented.getTotalPrice());
+        paymentHistory.setCancelYn("N");
         repository().save(paymentHistory);
 
-        */
+        
 
         /** Example 2:  finding and process
         
