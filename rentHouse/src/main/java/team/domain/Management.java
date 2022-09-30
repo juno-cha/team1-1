@@ -154,6 +154,27 @@ public class Management  {
 
         
     }
+    public static void bikeConditionChange(BikeRepairCompleted bikeRepairCompleted){
+
+        /** Example 1:  new item 
+        Management management = new Management();
+        repository().save(management);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(bikeRepairCompleted.get???()).ifPresent(management->{
+            
+            management // do something
+            repository().save(management);
+
+
+         });
+        */
+
+        
+    }
 
 
 }
