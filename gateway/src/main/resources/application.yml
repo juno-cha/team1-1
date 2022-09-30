@@ -8,7 +8,7 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: rentView
+        - id: rentview
           uri: http://localhost:8081
           predicates:
             - Path=, /bikeConditions/**, /dashboards/**
@@ -20,7 +20,7 @@ spring:
           uri: http://localhost:8083
           predicates:
             - Path=/rents/**, 
-        - id: rentHouse
+        - id: renthouse
           uri: http://localhost:8084
           predicates:
             - Path=/managements/**, 
@@ -47,8 +47,8 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: rentView
-          uri: http://rentView:8080
+        - id: rentview
+          uri: http://rentview:8080
           predicates:
             - Path=, /bikeConditions/**, /dashboards/**
         - id: payment
@@ -59,8 +59,8 @@ spring:
           uri: http://rent:8080
           predicates:
             - Path=/rents/**, 
-        - id: rentHouse
-          uri: http://rentHouse:8080
+        - id: renthouse
+          uri: http://renthouse:8080
           predicates:
             - Path=/managements/**, 
         - id: frontend

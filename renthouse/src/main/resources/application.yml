@@ -1,15 +1,8 @@
 server:
   port: 8080
-feign:
-  hystrix:
-    enabled: true
-hystrix:
-  command:
-    default:
-      execution.isolation.thread.timeoutInMilliseconds: 500
 spring:
   application:
-    name: rent
+    name: renthouse
 ---
 
 spring:
@@ -34,7 +27,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: rent
+          group: renthouse
           destination: team
           contentType: application/json
         event-out:
@@ -46,12 +39,9 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
-api:
-  url:
-    renthouse: localhost:8084
 
 server:
-  port: 8083
+  port: 8084
 
 ---
 
@@ -72,14 +62,11 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: rent
+          group: renthouse
           destination: team
           contentType: application/json
         event-out:
           destination: team
           contentType: application/json
 
-api:
-  url:
-    renthouse: renthouse:8080
 

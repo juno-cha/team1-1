@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rentView
+  name: rentview
   labels:
-    app: rentView
+    app: rentview
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rentView
+      app: rentview
   template:
     metadata:
       labels:
-        app: rentView
+        app: rentview
     spec:
       containers:
-        - name: rentView
-          image: username/rentView:latest
+        - name: rentview
+          image: username/rentview:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -123,22 +123,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rentHouse
+  name: renthouse
   labels:
-    app: rentHouse
+    app: renthouse
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rentHouse
+      app: renthouse
   template:
     metadata:
       labels:
-        app: rentHouse
+        app: renthouse
     spec:
       containers:
-        - name: rentHouse
-          image: username/rentHouse:latest
+        - name: renthouse
+          image: username/renthouse:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -165,15 +165,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rentView
+  name: rentview
   labels:
-    app: rentView
+    app: rentview
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: rentView
+    app: rentview
 
 
 ---
@@ -216,13 +216,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rentHouse
+  name: renthouse
   labels:
-    app: rentHouse
+    app: renthouse
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: rentHouse
+    app: renthouse
 

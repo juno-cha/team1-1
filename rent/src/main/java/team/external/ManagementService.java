@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Date;
 
-@FeignClient(name = "rentHouse", url = "${api.url.rentHouse}")
+@FeignClient(name = "renthouse", url = "${api.url.renthouse}")
 public interface ManagementService {
     @RequestMapping(method= RequestMethod.GET, path="/managements/{productId}")
     public Management getManagement(@PathVariable("productId") Long productId);
