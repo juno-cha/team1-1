@@ -14,6 +14,9 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 import team.domain.*;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Service
 @Transactional
@@ -22,7 +25,6 @@ public class PolicyHandler{
     
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString){}
-
 }
 
 

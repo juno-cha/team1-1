@@ -4,6 +4,9 @@ import team.domain.Returned;
 import team.domain.BikeRented;
 import team.RentApplication;
 import javax.persistence.*;
+
+import org.springframework.beans.BeanUtils;
+
 import java.util.List;
 import lombok.Data;
 import java.util.Date;
@@ -35,7 +38,6 @@ public class Rent  {
         Returned returned = new Returned(this);
         returned.publishAfterCommit();
 
-
         BikeRented bikeRented = new BikeRented(this);
         bikeRented.publishAfterCommit();
 
@@ -62,6 +64,9 @@ public class Rent  {
 
     @PreRemove
     public void onPreRemove(){
+        RentalCanceled rentalCanceled = new RentalCanceled();
+        BeanUtils.copyProperties(this, rentalCanceled);
+        rentalCanceled.publishAfterCommit();
     }
 
     public static RentRepository repository(){
