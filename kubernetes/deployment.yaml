@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: rentview
-          image: username/rentview:latest
+          image: cherry28j/rentview:v1
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -60,7 +60,7 @@ spec:
     spec:
       containers:
         - name: payment
-          image: username/payment:latest
+          image: cherry28j/payment:v1
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -100,7 +100,7 @@ spec:
     spec:
       containers:
         - name: rent
-          image: username/rent:latest
+          image: cherry28j/rent:v1
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -140,7 +140,7 @@ spec:
     spec:
       containers:
         - name: renthouse
-          image: username/renthouse:latest
+          image: cherry28j/renthouse:v1
           ports:
             - containerPort: 8080
           readinessProbe:
