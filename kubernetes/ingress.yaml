@@ -11,12 +11,14 @@ spec:
     - host: ""
       http: 
         paths: 
-          - path: /rentviews
+          # - path: /rentviews
+          - path: /dashboards
             pathType: Prefix
             backend: 
               serviceName: rentview
               servicePort: 8080
-          - path: /payments
+          # - path: /payments
+          - path: /paymentHistories
             pathType: Prefix
             backend: 
               serviceName: payment
@@ -26,7 +28,8 @@ spec:
             backend: 
               serviceName: rent
               servicePort: 8080
-          - path: /renthouses
+          # - path: /renthouses
+          - path: /managements
             pathType: Prefix
             backend: 
               serviceName: renthouse

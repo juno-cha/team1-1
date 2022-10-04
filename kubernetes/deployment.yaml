@@ -103,9 +103,13 @@ spec:
           image: cherry28j/rent:v1
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              cpu: "205m"
           readinessProbe:
             httpGet:
-              path: '/actuator/health'
+              # path: '/actuator/health'
+              path: '/rents'
               port: 8080
             initialDelaySeconds: 10
             timeoutSeconds: 2
