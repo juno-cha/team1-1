@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: rent
-          image: username/rent:latest
+          image: cherry28j/rent:v1
           ports:
             - containerPort: 8080
           readinessProbe:

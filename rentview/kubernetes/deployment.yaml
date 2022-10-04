@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: rentview
-          image: username/rentview:latest
+          image: cherry28j/rentview:v1
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -41,23 +41,23 @@ spec:
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata: 
-  name: "rentHouse"
+  name: "renthouse"
   labels: 
-    app: "rentHouse"
+    app: "renthouse"
 spec: 
   selector: 
     matchLabels: 
-      app: "rentHouse"
+      app: "renthouse"
   replicas: 1
   template: 
     metadata: 
       labels: 
-        app: "rentHouse"
+        app: "renthouse"
     spec: 
       containers: 
         - 
-          name: "rentHouse"
-          image: "juno.cha/rentHouse:database"
+          name: "renthouse"
+          image: "cherry28j/renthouse:v1"
           ports: 
             - 
               containerPort: 80

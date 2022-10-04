@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: renthouse
-          image: username/renthouse:latest
+          image: cherry28j/renthouse:v1
           ports:
             - containerPort: 8080
           readinessProbe:
